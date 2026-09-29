@@ -15,6 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
   <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
@@ -44,7 +45,7 @@
 
 <main>
 
-<section class="band " id="teaser"><div class="wrap">
+<section class="band" id="teaser"><div class="wrap">
   <figure class="media">
     <video src="static/videos/drawer_exchange.mp4" poster="static/img/posters/drawer_exchange.jpg" autoplay muted loop playsinline preload="metadata"></video>
   </figure>
@@ -73,7 +74,30 @@
   </div>
 </div></section>
 
-<section class="band " id="abstract"><div class="wrap">
+<section class="band" id="prior"><div class="wrap">
+  <h2>What is a prior?</h2>
+  <p class="sub">Structure built around the network. Most often: the frame <i class="red">X</i>.</p>
+  <div class="families" id="families" role="tablist"></div>
+  <div class="family-list" id="family-list"></div>
+</div></section>
+
+<section class="band gray" id="playground"><div class="wrap">
+  <h2>Same demos. Different prior.</h2>
+  <p class="sub">Five demos. Drag the block, pad or gripper out of the dashed areas.</p>
+  <div class="tabs pg-tabs" id="pg-tabs" role="tablist"></div>
+  <figure class="pg-figure"><svg id="pg" viewBox="0 0 900 470" role="img" aria-label="Pick-and-place playground"></svg></figure>
+  <div class="pg-status" id="pg-status"></div>
+</div></section>
+
+<section class="band" id="pipeline"><div class="wrap">
+  <h2>Where a prior enters training.</h2>
+  <p class="sub">Same network <i>f</i> in every policy. Only the code around it changes.</p>
+  <div class="tabs" id="pl-tabs" role="tablist"></div>
+  <ol class="stages" id="pl-stages"></ol>
+  <div class="pl-detail" id="pl-detail"></div>
+</div></section>
+
+<section class="band gray" id="abstract"><div class="wrap">
   <h2>Abstract.</h2>
   <p class="abstract">Robots that learn from a few demonstrations often require two forms of generalization. Compositional generalization
     recombines skills to solve new tasks, and skill generalization lets the learned policy behind each skill work in new situations. The two
@@ -90,7 +114,7 @@
     use of training-time structural assumptions as a bridge between skill learning and skill composition.</p>
 </div></section>
 
-<section class="band gray" id="method"><div class="wrap">
+<section class="band" id="method"><div class="wrap">
   <h2>How it works.</h2>
   <figure class="plain-figure">
     <img src="static/img/method.png" alt="APPL pipeline: construction agent, frozen skill library, runtime agent" loading="lazy">
@@ -98,7 +122,7 @@
   </figure>
 </div></section>
 
-<section class="band " id="rollouts"><div class="wrap">
+<section class="band gray" id="rollouts"><div class="wrap">
   <h2>Long-horizon rollouts.</h2>
   <p class="sub">Twelve demonstrations per task. Objects shifted beyond them. Logged episodes, replayed exactly.</p>
 
@@ -123,7 +147,7 @@
   <div class="task-info" id="task-info"></div>
 </div></section>
 
-<section class="band gray" id="results"><div class="wrap">
+<section class="band" id="results"><div class="wrap">
   <h2>Results.</h2>
   <div class="figures">
     <div><span class="num">89.6%</span><span class="what">OOD skill success, 2 demos</span><span class="vs">vs 37.9% fixed prior</span></div>
@@ -183,7 +207,7 @@
   </div>
 </div></section>
 
-<section class="band " id="bibtex"><div class="wrap">
+<section class="band gray" id="bibtex"><div class="wrap">
   <h2>BibTeX</h2>
   <div class="bib">
     <button class="copy" type="button" aria-label="Copy BibTeX">Copy</button>
@@ -205,6 +229,8 @@
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 <script src="static/js/main.js"></script>
+<script src="static/js/prior.js"></script>
 </body>
 </html>
