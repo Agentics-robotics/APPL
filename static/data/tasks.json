@@ -4,7 +4,7 @@
   "title": "Drawer Exchange",
   "description": "Swap blocks between a drawer and a pad.",
   "ready": true,
-  "seconds": 36.7,
+  "seconds": 30.7,
   "skills": [
    {
     "label": "Open drawer",
@@ -61,7 +61,7 @@
   "title": "Buffer Exchange",
   "description": "Swap two blocks through a buffer.",
   "ready": true,
-  "seconds": 34.7,
+  "seconds": 26.7,
   "skills": [
    {
     "label": "Red block to buffer",
@@ -112,7 +112,7 @@
   "title": "Retrieve and Store",
   "description": "Store a tunnel block in a drawer.",
   "ready": true,
-  "seconds": 37.0,
+  "seconds": 28.9,
   "skills": [
    {
     "label": "Open drawer",
@@ -169,7 +169,7 @@
   "title": "Covered Peg Assembly",
   "description": "Uncover and insert a peg.",
   "ready": true,
-  "seconds": 54.8,
+  "seconds": 50.7,
   "skills": [
    {
     "label": "Open lid",
@@ -238,7 +238,7 @@
   "title": "Pour and Return",
   "description": "Pour into a bowl, return the cup.",
   "ready": true,
-  "seconds": 36.7,
+  "seconds": 32.7,
   "skills": [
    {
     "label": "Grasp and lift",
@@ -283,7 +283,7 @@
   "title": "Store Blue, Keep Red",
   "description": "Store blue, keep red inside; the drawer gets reopened.",
   "ready": true,
-  "seconds": 29.6,
+  "seconds": 25.6,
   "skills": [
    {
     "label": "Open drawer",
