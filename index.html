@@ -14,7 +14,7 @@
   <link rel="apple-touch-icon" href="static/img/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
@@ -35,25 +35,25 @@
     </p>
     <p class="affil">National University of Singapore &nbsp;·&nbsp; <sup>*</sup>Equal contribution</p>
     <nav class="links">
-      <a href="https://arxiv.org/abs/2609.35690">Paper</a>
-      <span class="soon">Code (coming soon)</span>
-      <a href="#rollouts">Videos</a>
-      <a href="#bibtex">BibTeX</a>
+      <a class="pill" href="https://arxiv.org/abs/2609.35690">Read the paper</a>
+      <a href="#rollouts">Watch the rollouts <span class="chev">›</span></a>
+      <span class="soon">Code coming soon</span>
     </nav>
   </div>
 </header>
 
 <main>
 
-<section class="teaser wrap">
+<section class="band " id="teaser"><div class="wrap">
   <figure class="media">
     <video src="static/videos/drawer_exchange.mp4" poster="static/img/posters/drawer_exchange.jpg" autoplay muted loop playsinline preload="metadata"></video>
   </figure>
   <p class="caption">APPL composes prior-specific skill policies at runtime, with objects shifted beyond the demonstrations.</p>
-</section>
+</div></section>
 
-<section class="wrap" id="idea">
-  <h2>Key idea</h2>
+<section class="band gray" id="idea"><div class="wrap">
+  <h2>One prior. Two jobs.</h2>
+  <p class="sub">A prior states what a behavior depends on. APPL uses it twice.</p>
   <div class="columns three">
     <div>
       <span class="index">01</span>
@@ -71,10 +71,10 @@
       <p>It tells the agent <em>when</em> each policy applies.</p>
     </div>
   </div>
-</section>
+</div></section>
 
-<section class="wrap" id="abstract">
-  <h2>Abstract</h2>
+<section class="band " id="abstract"><div class="wrap">
+  <h2>Abstract.</h2>
   <p class="abstract">Robots that learn from a few demonstrations often require two forms of generalization. Compositional generalization
     recombines skills to solve new tasks, and skill generalization lets the learned policy behind each skill work in new situations. The two
     depend on each other, yet information is lost between composition and the skills it calls. Where a skill works is determined by the
@@ -88,19 +88,19 @@
     interfaces. Across MetaWorld and long-horizon ManiSkill tasks, APPL improves out-of-distribution skill generalization and enables
     previously unseen skill compositions; ablating the interface information substantially reduces performance. These results support the
     use of training-time structural assumptions as a bridge between skill learning and skill composition.</p>
-</section>
+</div></section>
 
-<section class="wrap" id="method">
-  <h2>Method</h2>
+<section class="band gray" id="method"><div class="wrap">
+  <h2>How it works.</h2>
   <figure class="plain-figure">
     <img src="static/img/method.png" alt="APPL pipeline: construction agent, frozen skill library, runtime agent" loading="lazy">
     <figcaption><strong>Build prior-specific policies offline, compose them online.</strong> <span class="orange">Orange</span> marks the prior's two roles.</figcaption>
   </figure>
-</section>
+</div></section>
 
-<section class="wrap" id="rollouts">
-  <h2>Long-horizon rollouts</h2>
-  <p class="lead">Twelve demonstrations per task; objects shifted beyond them. Logged episodes, replayed exactly.</p>
+<section class="band " id="rollouts"><div class="wrap">
+  <h2>Long-horizon rollouts.</h2>
+  <p class="sub">Twelve demonstrations per task. Objects shifted beyond them. Logged episodes, replayed exactly.</p>
 
   <ul class="key">
     <li><svg viewBox="0 0 40 40" aria-hidden="true"><line x1="8" y1="30" x2="34" y2="30" stroke="#E5484D" stroke-width="2.5"/><line x1="8" y1="30" x2="8" y2="4" stroke="#3E63DD" stroke-width="2.5"/><line x1="8" y1="30" x2="28" y2="12" stroke="#1a1a1a" stroke-width="2" stroke-dasharray="3 2"/><circle cx="28" cy="12" r="3.5" fill="#1a1a1a"/></svg>Reference frame and gripper frame</li>
@@ -110,21 +110,21 @@
   </ul>
 
   <div class="tabs" role="tablist">
-    <button class="tab active" data-task="drawer_exchange" role="tab"><img src="static/img/thumbs/drawer_exchange.jpg" alt="" loading="lazy">Drawer exchange</button>
-    <button class="tab" data-task="buffer_swap" role="tab"><img src="static/img/thumbs/buffer_swap.jpg" alt="" loading="lazy">Buffer exchange</button>
-    <button class="tab" data-task="constrained_retrieve_store" role="tab"><img src="static/img/thumbs/constrained_retrieve_store.jpg" alt="" loading="lazy">Retrieve and store</button>
-    <button class="tab" data-task="covered_peg_assembly" role="tab"><img src="static/img/thumbs/covered_peg_assembly.jpg" alt="" loading="lazy">Covered peg assembly</button>
-    <button class="tab" data-task="granular_pour_return" role="tab"><img src="static/img/thumbs/granular_pour_return.jpg" alt="" loading="lazy">Pour and return</button>
-    <button class="tab" data-task="drawer_keep_red" role="tab"><img src="static/img/thumbs/drawer_keep_red.jpg" alt="" loading="lazy">Store blue, keep red</button>
+    <button class="tab active" data-task="drawer_exchange" role="tab">Drawer exchange</button>
+    <button class="tab" data-task="buffer_swap" role="tab">Buffer exchange</button>
+    <button class="tab" data-task="constrained_retrieve_store" role="tab">Retrieve and store</button>
+    <button class="tab" data-task="covered_peg_assembly" role="tab">Covered peg assembly</button>
+    <button class="tab" data-task="granular_pour_return" role="tab">Pour and return</button>
+    <button class="tab" data-task="drawer_keep_red" role="tab">Store blue, keep red</button>
   </div>
   <figure class="media player">
     <video id="player" src="static/videos/drawer_exchange.mp4" poster="static/img/posters/drawer_exchange.jpg" controls muted playsinline preload="metadata"></video>
   </figure>
   <div class="task-info" id="task-info"></div>
-</section>
+</div></section>
 
-<section class="wrap" id="results">
-  <h2>Results</h2>
+<section class="band gray" id="results"><div class="wrap">
+  <h2>Results.</h2>
   <div class="figures">
     <div><span class="num">89.6%</span><span class="what">OOD skill success, 2 demos</span><span class="vs">vs 37.9% fixed prior</span></div>
     <div><span class="num">50.0%</span><span class="what">shifted objects</span><span class="vs">vs 10.0% Diffusion Policy</span></div>
@@ -181,9 +181,9 @@
       <p>The return policy's prior ignores particles, so the agent used it to return a <em>full</em> cup.</p>
     </div>
   </div>
-</section>
+</div></section>
 
-<section class="wrap" id="bibtex">
+<section class="band " id="bibtex"><div class="wrap">
   <h2>BibTeX</h2>
   <div class="bib">
     <button class="copy" type="button" aria-label="Copy BibTeX">Copy</button>
@@ -195,7 +195,7 @@
   year    = {2026}
 }</code></pre>
   </div>
-</section>
+</div></section>
 
 </main>
 
