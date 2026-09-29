@@ -155,7 +155,7 @@ h3 { color: var(--ink); font-size: 19px; margin: 0 0 8px; letter-spacing: -.01em
 .legend-item b { display: block; color: var(--ink); font-size: 15px; margin-bottom: 2px; }
 .legend-item span { color: var(--muted); }
 
-.tabs { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 16px; }
+.tabs { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-bottom: 16px; }
 .tab {
   padding: 8px 8px 10px;
   border: 2px solid transparent;
@@ -239,7 +239,7 @@ footer p { margin: 0; }
   .cards.three, .cards.two { grid-template-columns: 1fr; }
   .legend { grid-template-columns: repeat(2, 1fr); }
   .stats { grid-template-columns: repeat(2, 1fr); }
-  .tabs { grid-template-columns: repeat(5, minmax(96px, 1fr)); overflow-x: auto; padding-bottom: 4px; }
+  .tabs { grid-template-columns: repeat(6, minmax(96px, 1fr)); overflow-x: auto; padding-bottom: 4px; }
 }
 @media (max-width: 560px) {
   body { font-size: 16px; }

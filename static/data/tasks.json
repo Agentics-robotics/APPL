@@ -4,27 +4,29 @@
   "title": "Drawer Exchange",
   "description": "Swap blocks between a drawer and a pad.",
   "ready": true,
-  "seconds": 28.3,
+  "seconds": 34.9,
   "skills": [
    {
     "label": "Open drawer",
     "color": "#7C3AED",
     "priors": [
-     "World frame"
+     "world coordinates"
     ]
    },
    {
     "label": "Red block to pad",
     "color": "#F59E0B",
     "priors": [
-     "Goal-pad frame"
+     "in the pad frame",
+     "anchor by phase"
     ]
    },
    {
     "label": "Blue block into drawer",
     "color": "#0D9488",
     "priors": [
-     "Drawer-goal frame"
+     "progress along a line",
+     "in the drawer frame"
     ]
    }
   ]
@@ -33,29 +35,29 @@
   "task": "buffer_swap",
   "title": "Buffer Exchange",
   "description": "Swap two blocks through a buffer.",
-  "ready": false,
+  "ready": true,
   "seconds": 34.7,
   "skills": [
    {
     "label": "Red block to buffer",
     "color": "#7C3AED",
     "priors": [
-     "Gripper residual"
+     "offsets from chunk start"
     ]
    },
    {
     "label": "Blue block to goal",
     "color": "#F59E0B",
     "priors": [
-     "Gripper frame"
+     "Δ gripper pose"
     ]
    },
    {
     "label": "Red block to goal",
     "color": "#0D9488",
     "priors": [
-     "Gripper frame",
-     "Phase-routed anchor"
+     "Δ gripper pose",
+     "anchor by phase"
     ]
    }
   ]
@@ -71,28 +73,28 @@
     "label": "Open drawer",
     "color": "#7C3AED",
     "priors": [
-     "Gripper frame"
+     "Δ gripper pose"
     ]
    },
    {
     "label": "Retrieve from tunnel",
     "color": "#F59E0B",
     "priors": [
-     "Gripper frame"
+     "Δ gripper pose"
     ]
    },
    {
     "label": "Place in drawer",
     "color": "#0D9488",
     "priors": [
-     "Drawer-goal frame"
+     "in the drawer frame"
     ]
    },
    {
     "label": "Close drawer",
     "color": "#DB2777",
     "priors": [
-     "Gripper frame"
+     "Δ gripper pose"
     ]
    }
   ]
@@ -108,30 +110,30 @@
     "label": "Open lid",
     "color": "#7C3AED",
     "priors": [
-     "Hinge frame"
+     "around the hinge"
     ]
    },
    {
     "label": "Pick up peg",
     "color": "#F59E0B",
     "priors": [
-     "World frame"
+     "world coordinates"
     ]
    },
    {
     "label": "Reorient peg",
     "color": "#0D9488",
     "priors": [
-     "Held-peg frame",
-     "Hole frame",
-     "Hole frame · peg goal"
+     "in the peg frame",
+     "in the hole frame",
+     "peg pose → gripper"
     ]
    },
    {
     "label": "Insert peg",
     "color": "#DB2777",
     "priors": [
-     "Hole frame · peg goal"
+     "peg pose → gripper"
     ]
    }
   ]
@@ -147,21 +149,59 @@
     "label": "Grasp and lift",
     "color": "#7C3AED",
     "priors": [
-     "Cup → bowl frame"
+     "cup → bowl frame"
     ]
    },
    {
     "label": "Pour into bowl",
     "color": "#F59E0B",
     "priors": [
-     "Bowl frame"
+     "cup pose → gripper"
     ]
    },
    {
     "label": "Return cup",
     "color": "#0D9488",
     "priors": [
-     "Return-pad frame"
+     "in the pad frame"
+    ]
+   }
+  ]
+ },
+ {
+  "task": "drawer_keep_red",
+  "title": "Store Blue, Keep Red",
+  "description": "Store blue, keep red inside; the drawer gets reopened.",
+  "ready": true,
+  "seconds": 27.8,
+  "skills": [
+   {
+    "label": "Open drawer",
+    "color": "#7C3AED",
+    "priors": [
+     "world coordinates"
+    ]
+   },
+   {
+    "label": "Grasp blue",
+    "color": "#F59E0B",
+    "priors": [
+     "anchor by phase"
+    ]
+   },
+   {
+    "label": "Blue into drawer",
+    "color": "#0D9488",
+    "priors": [
+     "in the drawer frame"
+    ]
+   },
+   {
+    "label": "Reopen drawer",
+    "color": "#DB2777",
+    "priors": [
+     "along the drawer slide",
+     "world coordinates"
     ]
    }
   ]

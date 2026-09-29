@@ -116,20 +116,20 @@
 
   <div class="legend">
     <div class="legend-item">
-      <svg viewBox="0 0 40 40" aria-hidden="true"><line x1="14" y1="26" x2="34" y2="30" stroke="#EF4444" stroke-width="3.5" stroke-linecap="round"/><line x1="14" y1="26" x2="15" y2="5" stroke="#3B82F6" stroke-width="3.5" stroke-linecap="round"/><line x1="14" y1="26" x2="4" y2="35" stroke="#22C55E" stroke-width="3.5" stroke-linecap="round"/><circle cx="14" cy="26" r="4" fill="#fff" stroke="#111827" stroke-width="1.5"/></svg>
-      <div><b>Prior frame</b><span>where targets are measured from</span></div>
+      <svg viewBox="0 0 40 40" aria-hidden="true"><line x1="10" y1="30" x2="32" y2="30" stroke="#EF4444" stroke-width="3" stroke-dasharray="4 3"/><line x1="32" y1="30" x2="32" y2="8" stroke="#3B82F6" stroke-width="3" stroke-dasharray="4 3"/><line x1="10" y1="30" x2="32" y2="8" stroke="#7C3AED" stroke-width="3"/><circle cx="10" cy="30" r="4" fill="#fff" stroke="#111827" stroke-width="1.5"/><circle cx="32" cy="8" r="3.5" fill="#7C3AED"/></svg>
+      <div><b>Prior frame</b><span>target in its x / y / z</span></div>
     </div>
     <div class="legend-item">
-      <svg viewBox="0 0 40 40" aria-hidden="true"><g fill="none" stroke="#7C3AED" stroke-opacity=".45" stroke-width="2.5" stroke-linecap="round"><path d="M4 32C10 8 26 6 36 20"/><path d="M5 34C12 11 27 9 36 23"/><path d="M3 30C9 6 25 4 35 17"/></g></svg>
-      <div><b>Demonstrations</b><span>placed by the prior</span></div>
+      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="6" cy="32" r="3.5" fill="#111827"/><path d="M6 32l9-7M15 25l10-4M25 21l9-8" stroke="#F59E0B" stroke-width="3" stroke-linecap="round"/><path d="M34 13l-6 1 3 4z" fill="#F59E0B"/></svg>
+      <div><b>Δ ×12</b><span>small gripper moves</span></div>
+    </div>
+    <div class="legend-item">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="4" y="16" width="14" height="14" rx="2" fill="#F97316" fill-opacity=".55" stroke="#F97316" stroke-width="1.5"/><path d="M18 22l14-12" stroke="#111827" stroke-width="2" stroke-dasharray="3 2"/><circle cx="32" cy="10" r="4" fill="#0D9488"/></svg>
+      <div><b>Object first</b><span>object pose → gripper</span></div>
     </div>
     <div class="legend-item">
       <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="3" y="14" width="14" height="14" rx="2" fill="#F59E0B"/><rect x="22" y="8" width="14" height="14" rx="2" fill="#F59E0B" fill-opacity=".35" stroke="#F59E0B" stroke-width="1.5"/><path d="M13 16l9-4" stroke="#F59E0B" stroke-width="2" stroke-dasharray="3 2"/></svg>
-      <div><b>What-if nudge</b><span>illustration of the prior</span></div>
-    </div>
-    <div class="legend-item">
-      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="9" cy="10" r="6" fill="#7C3AED"/><path d="M6 10l2 2 4-4" stroke="#fff" stroke-width="2" fill="none"/><circle cx="9" cy="28" r="6" fill="#F59E0B"/><rect x="19" y="7" width="17" height="5" rx="2.5" fill="#D1D5DB"/><rect x="19" y="25" width="17" height="5" rx="2.5" fill="#D1D5DB"/></svg>
-      <div><b>Skills</b><span>start and end</span></div>
+      <div><b>what if?</b><span>anchor moves, target follows</span></div>
     </div>
   </div>
 
@@ -139,6 +139,7 @@
     <button class="tab" data-task="constrained_retrieve_store" role="tab"><img src="static/img/thumbs/constrained_retrieve_store.jpg" alt="" loading="lazy">Retrieve and store</button>
     <button class="tab" data-task="covered_peg_assembly" role="tab"><img src="static/img/thumbs/covered_peg_assembly.jpg" alt="" loading="lazy">Covered peg assembly</button>
     <button class="tab" data-task="granular_pour_return" role="tab"><img src="static/img/thumbs/granular_pour_return.jpg" alt="" loading="lazy">Pour and return</button>
+    <button class="tab" data-task="drawer_keep_red" role="tab"><img src="static/img/thumbs/drawer_keep_red.jpg" alt="" loading="lazy">Store blue, keep red</button>
   </div>
   <figure class="video-card player">
     <video id="player" src="static/videos/drawer_exchange.mp4" poster="static/img/posters/drawer_exchange.jpg" controls muted playsinline preload="metadata"></video>
