@@ -2,7 +2,7 @@
  {
   "task": "drawer_exchange",
   "title": "Drawer Exchange",
-  "description": "Exchange blocks between a drawer and a pad: open the drawer, move the red block out to the pad, and put the blue block in.",
+  "description": "Swap blocks between a drawer and a pad.",
   "ready": true,
   "seconds": 28.3,
   "skills": [
@@ -32,7 +32,7 @@
  {
   "task": "buffer_swap",
   "title": "Buffer Exchange",
-  "description": "Swap two blocks between their goal pads through a free buffer.",
+  "description": "Swap two blocks through a buffer.",
   "ready": false,
   "seconds": 34.7,
   "skills": [
@@ -63,7 +63,7 @@
  {
   "task": "constrained_retrieve_store",
   "title": "Retrieve and Store",
-  "description": "Store a block from a low tunnel in a drawer: open, retrieve, place, and close.",
+  "description": "Store a tunnel block in a drawer.",
   "ready": true,
   "seconds": 37.0,
   "skills": [
@@ -100,7 +100,7 @@
  {
   "task": "covered_peg_assembly",
   "title": "Covered Peg Assembly",
-  "description": "Uncover and insert a peg: open the hinged lid, pick up the peg, reorient it, and insert it.",
+  "description": "Uncover and insert a peg.",
   "ready": true,
   "seconds": 51.0,
   "skills": [
@@ -139,8 +139,8 @@
  {
   "task": "granular_pour_return",
   "title": "Pour and Return",
-  "description": "Pour particles into a bowl, then return the container to its pad.",
-  "ready": false,
+  "description": "Pour into a bowl, return the cup.",
+  "ready": true,
   "seconds": 34.9,
   "skills": [
    {

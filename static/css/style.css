@@ -51,6 +51,7 @@ h1 {
   font-weight: 800;
   letter-spacing: -.025em;
 }
+h1 .hl { color: var(--red); }
 .tagline { margin: 16px auto 0; max-width: 720px; font-size: clamp(18px, 2.2vw, 21px); color: var(--muted); }
 .tagline em { font-style: normal; color: var(--red); font-weight: 600; }
 .authors { margin: 26px auto 4px; display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 22px; font-size: 18px; }
@@ -82,17 +83,18 @@ h2 {
   font-weight: 800;
   letter-spacing: -.02em;
 }
+h2 { text-align: center; }
 h2::before {
   content: "";
   display: block;
   width: 36px; height: 4px;
-  margin-bottom: 12px;
+  margin: 0 auto 12px;
   border-radius: 2px;
   background: linear-gradient(90deg, var(--red), var(--green));
 }
 h3 { color: var(--ink); font-size: 19px; margin: 0 0 8px; letter-spacing: -.01em; }
-.lead { max-width: 860px; margin: 0 0 22px; color: var(--text); }
-.abstract { max-width: 900px; margin: 0; text-align: justify; hyphens: auto; }
+.lead { max-width: 760px; margin: 0 auto 22px; color: var(--text); text-align: center; }
+.abstract { max-width: 860px; margin: 0 auto; text-align: justify; hyphens: auto; }
 
 .video-card {
   margin: 0;
@@ -116,10 +118,12 @@ h3 { color: var(--ink); font-size: 19px; margin: 0 0 8px; letter-spacing: -.01em
   background: var(--soft);
   border: 1px solid var(--line);
 }
+.card { text-align: center; }
 .card p { margin: 0; font-size: 16px; }
 .card .num {
   width: 32px; height: 32px; margin-bottom: 12px;
   display: grid; place-items: center;
+  margin-left: auto; margin-right: auto;
   border-radius: 50%;
   background: var(--red);
   color: #fff; font-weight: 700; font-size: 15px;
@@ -129,7 +133,7 @@ h3 { color: var(--ink); font-size: 19px; margin: 0 0 8px; letter-spacing: -.01em
 
 .figure { margin: 0; padding: 18px; border-radius: var(--radius); border: 1px solid var(--line); background: #fff; box-shadow: var(--shadow); }
 .figure img { width: 100%; }
-.figure figcaption { margin-top: 12px; color: var(--muted); font-size: 15px; }
+.figure figcaption { margin-top: 12px; color: var(--muted); font-size: 15px; text-align: center; }
 .figure strong { color: var(--ink); }
 .orange { color: #d27a00; font-weight: 600; }
 
@@ -147,6 +151,7 @@ h3 { color: var(--ink); font-size: 19px; margin: 0 0 8px; letter-spacing: -.01em
   font-size: 14px; line-height: 1.45;
 }
 .legend-item svg { flex: 0 0 34px; width: 34px; height: 34px; }
+.legend-item { align-items: center; }
 .legend-item b { display: block; color: var(--ink); font-size: 15px; margin-bottom: 2px; }
 .legend-item span { color: var(--muted); }
 
@@ -165,8 +170,8 @@ h3 { color: var(--ink); font-size: 19px; margin: 0 0 8px; letter-spacing: -.01em
 .tab:hover { transform: translateY(-2px); }
 .tab.active { border-color: var(--red); background: #fff; color: var(--ink); box-shadow: var(--shadow); }
 .player { margin-bottom: 14px; }
-.task-info { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 15px; }
-.task-info .desc { flex-basis: 100%; margin: 0 0 6px; color: var(--muted); }
+.task-info { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; font-size: 15px; }
+.task-info .desc { flex-basis: 100%; margin: 0 0 6px; color: var(--muted); text-align: center; }
 .step {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 6px 12px 6px 6px;
@@ -182,6 +187,7 @@ h3 { color: var(--ink); font-size: 19px; margin: 0 0 8px; letter-spacing: -.01em
 /* ---------------------------------------------------------------- results */
 .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 30px; }
 .stat {
+  text-align: center;
   padding: 20px;
   border-radius: var(--radius);
   background: #fff;
@@ -195,8 +201,8 @@ h3 { color: var(--ink); font-size: 19px; margin: 0 0 8px; letter-spacing: -.01em
 .stat .what { margin-top: 6px; color: var(--ink); font-weight: 600; font-size: 15px; line-height: 1.4; }
 .stat .vs { margin-top: 4px; color: var(--muted); font-size: 13px; line-height: 1.4; }
 
-.table-title { margin-top: 26px; }
-.table-note { margin: 0 0 12px; color: var(--muted); font-size: 14px; max-width: 900px; }
+.table-title { margin-top: 26px; text-align: center; }
+.table-note { margin: 0 auto 12px; color: var(--muted); font-size: 14px; max-width: 900px; text-align: center; }
 .table-scroll { overflow-x: auto; border-radius: 14px; border: 1px solid var(--line); }
 table { width: 100%; border-collapse: collapse; font-size: 14px; font-variant-numeric: tabular-nums; min-width: 720px; }
 th, td { padding: 9px 10px; text-align: center; white-space: nowrap; }

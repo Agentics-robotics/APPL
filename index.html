@@ -22,7 +22,7 @@
 <header class="hero">
   <div class="wrap">
     <img class="hero-logo" src="static/img/logo.png" alt="APPL logo">
-    <h1>Agent Priors-guided Policy Learning</h1>
+    <h1><span class="hl">A</span>gent <span class="hl">P</span>riors-guided <span class="hl">P</span>olicy <span class="hl">L</span>earning</h1>
     <p class="tagline">One structural prior shapes how a skill is learned <em>and</em> tells the runtime agent when to use it.</p>
     <p class="authors">
       <span>Puming Jiang<sup>*</sup></span>
@@ -35,10 +35,10 @@
     </p>
     <p class="affil">National University of Singapore &nbsp;·&nbsp; <sup>*</sup>Equal contribution</p>
     <nav class="buttons">
-      <span class="btn disabled" title="Coming soon">
+      <a class="btn" href="https://arxiv.org/abs/2609.35690">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 2v6h6M9 13h6M9 17h6" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-        Paper <small>soon</small>
-      </span>
+        Paper
+      </a>
       <a class="btn" href="https://github.com/Agentics-robotics/Agent-Prior-for-Policy-Training">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.4c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.39-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>
         Code
@@ -61,9 +61,7 @@
   <figure class="video-card">
     <video src="static/videos/drawer_exchange.mp4" poster="static/img/posters/drawer_exchange.jpg" autoplay muted loop playsinline preload="metadata"></video>
   </figure>
-  <p class="caption">Drawer exchange, with the drawer blocks shifted beyond the demonstrated range. The runtime agent composes three
-    skills from a library of prior-specific policies. Each policy acts in the frame its prior chose. The axes show that frame, and the
-    translucent bundle shows the policy's demonstrations as its prior places them in the scene.</p>
+  <p class="caption">APPL composes prior-specific skill policies at runtime, with objects shifted beyond the demonstrations.</p>
 </section>
 
 <section class="wrap" id="idea">
@@ -71,21 +69,18 @@
   <div class="cards three">
     <article class="card">
       <div class="num">1</div>
-      <h3>A structural prior per skill</h3>
-      <p>A prior states what a behavior depends on, for example that a grasp depends only on the gripper's pose relative to the object.
-        A construction agent proposes several priors for every skill it segments from the demonstrations.</p>
+      <h3>A prior per skill</h3>
+      <p>What a behavior depends on, e.g. a grasp depends only on the gripper's pose relative to the object.</p>
     </article>
     <article class="card">
       <div class="num">2</div>
       <h3>Built into training</h3>
-      <p>Each prior is implemented through the policy's representation, action coordinates, or an auxiliary objective, and trains its own
-        diffusion policy. This shapes <em>where</em> the policy generalizes.</p>
+      <p>It shapes <em>where</em> each policy generalizes.</p>
     </article>
     <article class="card">
       <div class="num">3</div>
-      <h3>Stated in the interface</h3>
-      <p>The same prior, with handoff conditions, training support and verification evidence, is written into the policy's interface.
-        A runtime agent reads it to choose among policies and compose them toward new goals.</p>
+      <h3>Read at runtime</h3>
+      <p>It tells the agent <em>when</em> each policy applies.</p>
     </article>
   </div>
 </section>
@@ -111,35 +106,30 @@
   <h2>Method</h2>
   <figure class="figure">
     <img src="static/img/method.png" alt="APPL pipeline: construction agent, frozen skill library, runtime agent" loading="lazy">
-    <figcaption><strong>APPL builds prior-specific policies offline and composes them online.</strong> The construction agent segments
-      demonstrations, proposes several priors per skill, trains one documented policy per prior, and verifies each policy from demonstrated
-      entry states. The runtime agent reads these documents to choose a policy, its arguments, a duration, and stop conditions.
-      <span class="orange">Orange</span> marks the prior's two roles.</figcaption>
+    <figcaption><strong>Build prior-specific policies offline, compose them online.</strong> <span class="orange">Orange</span> marks the prior's two roles.</figcaption>
   </figure>
 </section>
 
 <section class="wrap" id="rollouts">
   <h2>Long-horizon rollouts</h2>
-  <p class="lead">Five ManiSkill tasks, each learned from twelve demonstrations. Every video shows one successful APPL episode from the
-    motion-OOD suite, where objects are shifted beyond the demonstrated ranges. Each is a Blender re-render of the logged simulation,
-    replayed exactly.</p>
+  <p class="lead">Twelve demonstrations per task; objects shifted beyond them. Logged episodes, replayed exactly.</p>
 
   <div class="legend">
     <div class="legend-item">
       <svg viewBox="0 0 40 40" aria-hidden="true"><line x1="14" y1="26" x2="34" y2="30" stroke="#EF4444" stroke-width="3.5" stroke-linecap="round"/><line x1="14" y1="26" x2="15" y2="5" stroke="#3B82F6" stroke-width="3.5" stroke-linecap="round"/><line x1="14" y1="26" x2="4" y2="35" stroke="#22C55E" stroke-width="3.5" stroke-linecap="round"/><circle cx="14" cy="26" r="4" fill="#fff" stroke="#111827" stroke-width="1.5"/></svg>
-      <div><b>Prior frame</b><span>the frame the running policy predicts gripper targets in, with a tag naming it</span></div>
+      <div><b>Prior frame</b><span>where targets are measured from</span></div>
     </div>
     <div class="legend-item">
       <svg viewBox="0 0 40 40" aria-hidden="true"><g fill="none" stroke="#7C3AED" stroke-opacity=".45" stroke-width="2.5" stroke-linecap="round"><path d="M4 32C10 8 26 6 36 20"/><path d="M5 34C12 11 27 9 36 23"/><path d="M3 30C9 6 25 4 35 17"/></g></svg>
-      <div><b>Demonstrations</b><span>the policy's twelve training demonstrations, placed in the scene by its prior</span></div>
+      <div><b>Demonstrations</b><span>placed by the prior</span></div>
     </div>
     <div class="legend-item">
       <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="3" y="14" width="14" height="14" rx="2" fill="#F59E0B"/><rect x="22" y="8" width="14" height="14" rx="2" fill="#F59E0B" fill-opacity=".35" stroke="#F59E0B" stroke-width="1.5"/><path d="M13 16l9-4" stroke="#F59E0B" stroke-width="2" stroke-dasharray="3 2"/></svg>
-      <div><b>What-if nudge</b><span>at every policy take-over, the body the prior anchors to is nudged and the demonstrations respond as the prior dictates (an illustration, not part of the rollout)</span></div>
+      <div><b>What-if nudge</b><span>illustration of the prior</span></div>
     </div>
     <div class="legend-item">
       <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="9" cy="10" r="6" fill="#7C3AED"/><path d="M6 10l2 2 4-4" stroke="#fff" stroke-width="2" fill="none"/><circle cx="9" cy="28" r="6" fill="#F59E0B"/><rect x="19" y="7" width="17" height="5" rx="2.5" fill="#D1D5DB"/><rect x="19" y="25" width="17" height="5" rx="2.5" fill="#D1D5DB"/></svg>
-      <div><b>Skills</b><span>a banner and the skill list mark where each skill starts and ends</span></div>
+      <div><b>Skills</b><span>start and end</span></div>
     </div>
   </div>
 
@@ -159,16 +149,14 @@
 <section class="wrap" id="results">
   <h2>Results</h2>
   <div class="stats">
-    <div class="stat"><div class="big">89.6%</div><div class="what">OOD skill success with <b>2</b> demonstrations</div><div class="vs">vs 37.9% for a fixed relational prior · MetaWorld</div></div>
-    <div class="stat"><div class="big">50.0%</div><div class="what">success with shifted objects</div><div class="vs">vs 10.0% for full-task Diffusion Policy · ManiSkill</div></div>
-    <div class="stat"><div class="big">92.5%</div><div class="what">on task-level variants</div><div class="vs">resume mid-task or stop at a requested sub-goal</div></div>
-    <div class="stat"><div class="big">8/16</div><div class="what">previously unseen compositions</div><div class="vs">vs 2/16 with interface information hidden</div></div>
+    <div class="stat"><div class="big">89.6%</div><div class="what">OOD, 2 demos</div><div class="vs">vs 37.9% fixed prior</div></div>
+    <div class="stat"><div class="big">50.0%</div><div class="what">shifted objects</div><div class="vs">vs 10.0% Diffusion Policy</div></div>
+    <div class="stat"><div class="big">92.5%</div><div class="what">task-level variants</div><div class="vs">resume or stop early</div></div>
+    <div class="stat"><div class="big">8/16</div><div class="what">new compositions</div><div class="vs">vs 2/16 without interface</div></div>
   </div>
 
   <h3 class="table-title">Exp. 1: agent-designed priors for skill generalization</h3>
-  <p class="table-note">Six MetaWorld tasks, hidden-test success (%) averaged over tasks with <i>N</i> demonstrations each. OOD averages
-    recombined and extrapolated states. <i>q</i><sub>1</sub> is the agent's first proposal; <i>q</i><sub>3</sub> and <i>q</i><sub>4</sub>
-    are selected by development OOD success from three and four candidates.</p>
+  <p class="table-note">Six MetaWorld tasks, success (%) with <i>N</i> demonstrations.</p>
   <div class="table-scroll">
   <table>
     <thead>
@@ -186,9 +174,7 @@
   </div>
 
   <h3 class="table-title">Exp. 2: long-horizon composition</h3>
-  <p class="table-note">Five ManiSkill tasks, twelve demonstrations each. M: motion-level OOD (objects shifted beyond the demonstrated
-    ranges); T: task-level OOD (resume from a partly completed task, or stop at a requested sub-goal); eight cases each per task. Comp.:
-    successes on 16 new skill compositions. DP and SinglePrior have no goal input (–).</p>
+  <p class="table-note">Five ManiSkill tasks. M: shifted objects · T: task-level variants · Comp.: new compositions.</p>
   <div class="table-scroll">
   <table class="exp2">
     <thead>
@@ -210,15 +196,12 @@
 
   <div class="cards two findings">
     <article class="card">
-      <h3>The same library needs informed selection</h3>
-      <p>With the verified policies kept but all interface information hidden, success falls from 50.0% to 20.0% on motion OOD, from 92.5%
-        to 65.0% on task-level variants, and from 8/16 to 2/16 on compositions. Replacing the runtime agent with a fixed rule gives 22.5%,
-        52.5% and 1/16.</p>
+      <h3>Selection needs the interface</h3>
+      <p>Same library, interface hidden: 50.0 → 20.0% · 92.5 → 65.0% · 8/16 → 2/16.</p>
     </article>
     <article class="card">
-      <h3>Prior descriptions enable new handoffs</h3>
-      <p>Asked to return a <em>full</em> container, the agent read that the return policy's prior excludes particle state, called it right
-        after grasping, and reached the goal in two calls, although its handoff note describes an emptied container.</p>
+      <h3>Priors enable new handoffs</h3>
+      <p>The return policy's prior ignores particles, so the agent used it to return a <em>full</em> cup.</p>
     </article>
   </div>
 </section>
@@ -227,11 +210,12 @@
   <h2>BibTeX</h2>
   <div class="bib">
     <button class="copy" type="button" aria-label="Copy BibTeX">Copy</button>
-<pre><code id="bibtex-code">@misc{jiang2026appl,
-  title  = {Agent Priors-guided Policy Learning},
-  author = {Jiang, Puming and Hu, Tianrun and Du, Haozhe and Li, Yibo and
-            Xue, Zhiwei and Li, Xinhu and Soh, Harold},
-  year   = {2026}
+<pre><code id="bibtex-code">@article{jiang2026appl,
+  title   = {Agent Priors-guided Policy Learning},
+  author  = {Jiang, Puming and Hu, Tianrun and Du, Haozhe and Li, Yibo and
+             Xue, Zhiwei and Li, Xinhu and Soh, Harold},
+  journal = {arXiv preprint arXiv:2609.35690},
+  year    = {2026}
 }</code></pre>
   </div>
 </section>
