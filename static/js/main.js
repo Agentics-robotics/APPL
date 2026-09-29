@@ -8,11 +8,14 @@
   function render(task) {
     const t = tasks[task];
     if (!t) return;
-    const chain = t.skills.map(s =>
-      `<span class="skill"><span class="dot" style="background:${s.color}"></span>` +
-      `<b>${s.label}</b> <i>${s.priors.join(' → ')}</i></span>`
-    ).join('<span class="sep">/</span>');
-    info.innerHTML = `<p class="desc">${t.description}</p><p class="chain">${chain}</p>`;
+    const cols = t.skills.map((s, i) =>
+      `<div class="iface-skill" style="border-top-color:${s.color}"><p class="iface-name"><span class="dot" style="background:${s.color}"></span>` +
+      `<span class="step">${i + 1}</span>${s.label}</p>` +
+      s.policies.map(p =>
+        `<dl class="iface-policy"><dt>Prior</dt><dd>${p.prior}</dd><dt>Use when</dt><dd class="when">${p.when}</dd></dl>`
+      ).join('') + `</div>`
+    ).join('');
+    info.innerHTML = `<p class="iface-title">The interface: each policy's prior, as the agent reads it</p><div class="iface">${cols}</div>`;
   }
 
   function select(task) {

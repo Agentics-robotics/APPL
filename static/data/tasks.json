@@ -4,29 +4,54 @@
   "title": "Drawer Exchange",
   "description": "Swap blocks between a drawer and a pad.",
   "ready": true,
-  "seconds": 34.9,
+  "seconds": 36.7,
   "skills": [
    {
     "label": "Open drawer",
     "color": "#7C3AED",
-    "priors": [
-     "world coordinates"
+    "policies": [
+     {
+      "id": "open_drawer__h03",
+      "tag": "h03",
+      "prior": "Gripper targets in world coordinates; a phase head separates approach, pull and release.",
+      "when": "Drawer at its calibrated place; the entry stage is uncertain."
+     }
     ]
    },
    {
     "label": "Red block to pad",
     "color": "#F59E0B",
-    "priors": [
-     "in the pad frame",
-     "anchor by phase"
+    "policies": [
+     {
+      "id": "red_transfer__h02",
+      "tag": "h02",
+      "prior": "Gripper position as an offset from the red goal pad.",
+      "when": "Red block grasped; the pad may have moved."
+     },
+     {
+      "id": "red_transfer__h04",
+      "tag": "h04",
+      "prior": "Anchor switches with the phase: world, red block, pad, gripper, blue block.",
+      "when": "The phase is clear; red, the pad or blue may have moved."
+     }
     ]
    },
    {
     "label": "Blue block into drawer",
     "color": "#0D9488",
-    "priors": [
-     "progress along a line",
-     "in the drawer frame"
+    "policies": [
+     {
+      "id": "blue_insert__h04",
+      "tag": "h04",
+      "prior": "Progress along the straight line from the blue block to its slot, plus a small offset.",
+      "when": "Drawer open; the blue block may have moved."
+     },
+     {
+      "id": "blue_insert__h02",
+      "tag": "h02",
+      "prior": "Gripper position as an offset from the blue slot inside the drawer.",
+      "when": "Blue block carried; alignment with the drawer slot is the risk."
+     }
     ]
    }
   ]
@@ -41,23 +66,43 @@
    {
     "label": "Red block to buffer",
     "color": "#7C3AED",
-    "priors": [
-     "offsets from chunk start"
+    "policies": [
+     {
+      "id": "buffer_red__h02",
+      "tag": "h02",
+      "prior": "Offsets from the gripper pose at each chunk start; a phase head separates grasp, carry and release.",
+      "when": "The arm starts away from home, or mid-skill."
+     }
     ]
    },
    {
     "label": "Blue block to goal",
     "color": "#F59E0B",
-    "priors": [
-     "Δ gripper pose"
+    "policies": [
+     {
+      "id": "place_blue__h03",
+      "tag": "h03",
+      "prior": "Small moves from the gripper's current pose.",
+      "when": "Early or late handoff; small gripper offset."
+     }
     ]
    },
    {
     "label": "Red block to goal",
     "color": "#0D9488",
-    "priors": [
-     "Δ gripper pose",
-     "anchor by phase"
+    "policies": [
+     {
+      "id": "place_red__h03",
+      "tag": "h03",
+      "prior": "Small moves from the gripper's current pose.",
+      "when": "Handoff from blue placement; small tracking offset."
+     },
+     {
+      "id": "place_red__h04",
+      "tag": "h04",
+      "prior": "Anchor by phase: the blue block, then the red block, then the red pad.",
+      "when": "Blue is placed; the red block may have moved."
+     }
     ]
    }
   ]
@@ -72,29 +117,49 @@
    {
     "label": "Open drawer",
     "color": "#7C3AED",
-    "priors": [
-     "Δ gripper pose"
+    "policies": [
+     {
+      "id": "open_drawer__h02",
+      "tag": "h02",
+      "prior": "Small moves from the gripper's current pose.",
+      "when": "Partial progress or a small arm offset."
+     }
     ]
    },
    {
     "label": "Retrieve from tunnel",
     "color": "#F59E0B",
-    "priors": [
-     "Δ gripper pose"
+    "policies": [
+     {
+      "id": "retrieve_tunnel_block__h02",
+      "tag": "h02",
+      "prior": "Small moves from the gripper's current pose.",
+      "when": "Block still in the tunnel; the arm starts off-nominal."
+     }
     ]
    },
    {
     "label": "Place in drawer",
     "color": "#0D9488",
-    "priors": [
-     "in the drawer frame"
+    "policies": [
+     {
+      "id": "place_block_in_drawer__h02",
+      "tag": "h02",
+      "prior": "Gripper pose in the drawer's placement frame, tracked live.",
+      "when": "Drawer open; the placement goal may have moved."
+     }
     ]
    },
    {
     "label": "Close drawer",
     "color": "#DB2777",
-    "priors": [
-     "Δ gripper pose"
+    "policies": [
+     {
+      "id": "close_drawer__h02",
+      "tag": "h02",
+      "prior": "Small moves from the gripper's current pose.",
+      "when": "Release height or closing progress varies."
+     }
     ]
    }
   ]
@@ -104,36 +169,66 @@
   "title": "Covered Peg Assembly",
   "description": "Uncover and insert a peg.",
   "ready": true,
-  "seconds": 51.0,
+  "seconds": 54.8,
   "skills": [
    {
     "label": "Open lid",
     "color": "#7C3AED",
-    "priors": [
-     "around the hinge"
+    "policies": [
+     {
+      "id": "open_hinged_lid__h04",
+      "tag": "h04",
+      "prior": "Gripper targets in the lid's hinge frame; open and close as a learned mode.",
+      "when": "The lid box may have moved or rotated."
+     }
     ]
    },
    {
     "label": "Pick up peg",
     "color": "#F59E0B",
-    "priors": [
-     "world coordinates"
+    "policies": [
+     {
+      "id": "retrieve_peg_from_box__h03",
+      "tag": "h03",
+      "prior": "World coordinates with phase cues from the lid, the peg height and the fingers.",
+      "when": "Default; unclear whether the lid is released or the peg grasped."
+     }
     ]
    },
    {
     "label": "Reorient peg",
     "color": "#0D9488",
-    "priors": [
-     "in the peg frame",
-     "in the hole frame",
-     "peg pose → gripper"
+    "policies": [
+     {
+      "id": "reorient_and_stage_peg__h02",
+      "tag": "h02",
+      "prior": "Gripper pose in the held peg's frame.",
+      "when": "Peg held rigidly; peg and gripper moved together."
+     },
+     {
+      "id": "reorient_and_stage_peg__h01",
+      "tag": "h01",
+      "prior": "Gripper pose in the hole frame.",
+      "when": "The fixture moved; the peg is held."
+     },
+     {
+      "id": "reorient_and_stage_peg__h04",
+      "tag": "h04",
+      "prior": "The peg's pose in the hole frame first, then the gripper through the grasp.",
+      "when": "The hole moved or the grasp offset changed."
+     }
     ]
    },
    {
     "label": "Insert peg",
     "color": "#DB2777",
-    "priors": [
-     "peg pose → gripper"
+    "policies": [
+     {
+      "id": "align_and_insert_peg__h04",
+      "tag": "h04",
+      "prior": "The peg's pose in the hole frame first, then the gripper through the grasp.",
+      "when": "Peg retained; the hole or the grasp offset changed."
+     }
     ]
    }
   ]
@@ -143,27 +238,42 @@
   "title": "Pour and Return",
   "description": "Pour into a bowl, return the cup.",
   "ready": true,
-  "seconds": 34.9,
+  "seconds": 36.7,
   "skills": [
    {
     "label": "Grasp and lift",
     "color": "#7C3AED",
-    "priors": [
-     "cup → bowl frame"
+    "policies": [
+     {
+      "id": "grasp_lift_stage__h04",
+      "tag": "h04",
+      "prior": "Gripper position from the cup, then from the bowl, blended as it lifts.",
+      "when": "The cup may have moved."
+     }
     ]
    },
    {
     "label": "Pour into bowl",
     "color": "#F59E0B",
-    "priors": [
-     "cup pose → gripper"
+    "policies": [
+     {
+      "id": "controlled_pour_and_right__h04",
+      "tag": "h04",
+      "prior": "The cup's pose in the bowl frame first, then the gripper; particles as an unordered set.",
+      "when": "Cup held rigidly; the bowl may have moved."
+     }
     ]
    },
    {
     "label": "Return cup",
     "color": "#0D9488",
-    "priors": [
-     "in the pad frame"
+    "policies": [
+     {
+      "id": "return_place_release__h01",
+      "tag": "h01",
+      "prior": "Gripper pose in the return-pad frame.",
+      "when": "Cup held upright; the pad may have moved."
+     }
     ]
    }
   ]
@@ -173,35 +283,60 @@
   "title": "Store Blue, Keep Red",
   "description": "Store blue, keep red inside; the drawer gets reopened.",
   "ready": true,
-  "seconds": 27.8,
+  "seconds": 29.6,
   "skills": [
    {
     "label": "Open drawer",
     "color": "#7C3AED",
-    "priors": [
-     "world coordinates"
+    "policies": [
+     {
+      "id": "open_drawer__h03",
+      "tag": "h03",
+      "prior": "Gripper targets in world coordinates; a phase head separates approach, pull and release.",
+      "when": "Drawer at its calibrated place; the entry stage is uncertain."
+     }
     ]
    },
    {
     "label": "Grasp blue",
     "color": "#F59E0B",
-    "priors": [
-     "anchor by phase"
+    "policies": [
+     {
+      "id": "red_transfer__h04",
+      "tag": "h04",
+      "prior": "Anchor switches with the phase: world, red block, pad, gripper, blue block.",
+      "when": "The phase is clear; red, the pad or blue may have moved."
+     }
     ]
    },
    {
     "label": "Blue into drawer",
     "color": "#0D9488",
-    "priors": [
-     "in the drawer frame"
+    "policies": [
+     {
+      "id": "blue_insert__h02",
+      "tag": "h02",
+      "prior": "Gripper position as an offset from the blue slot inside the drawer.",
+      "when": "Blue block carried; alignment with the drawer slot is the risk."
+     }
     ]
    },
    {
     "label": "Reopen drawer",
     "color": "#DB2777",
-    "priors": [
-     "along the drawer slide",
-     "world coordinates"
+    "policies": [
+     {
+      "id": "open_drawer__h01",
+      "tag": "h01",
+      "prior": "Gripper targets in the drawer's own frame, sliding with the drawer.",
+      "when": "The drawer is displaced or already partly open."
+     },
+     {
+      "id": "open_drawer__h03",
+      "tag": "h03",
+      "prior": "Gripper targets in world coordinates; a phase head separates approach, pull and release.",
+      "when": "Drawer at its calibrated place; the entry stage is uncertain."
+     }
     ]
    }
   ]
