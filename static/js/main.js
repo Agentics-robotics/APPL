@@ -8,11 +8,11 @@
   function render(task) {
     const t = tasks[task];
     if (!t) return;
-    const chain = t.skills.map((s, i) =>
-      `<span class="step"><span class="dot" style="background:${s.color}">${i + 1}</span>` +
-      `<b>${s.label}</b><i>${s.priors.join(' → ')}</i></span>`
-    ).join('<span class="arrow">→</span>');
-    info.innerHTML = `<p class="desc">${t.description}</p>${chain}`;
+    const chain = t.skills.map(s =>
+      `<span class="skill"><span class="dot" style="background:${s.color}"></span>` +
+      `<b>${s.label}</b> <i>${s.priors.join(' → ')}</i></span>`
+    ).join('<span class="sep">/</span>');
+    info.innerHTML = `<p class="desc">${t.description}</p><p class="chain">${chain}</p>`;
   }
 
   function select(task) {
