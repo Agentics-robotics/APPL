@@ -1,0 +1,169 @@
+[
+ {
+  "task": "drawer_exchange",
+  "title": "Drawer Exchange",
+  "description": "Exchange blocks between a drawer and a pad: open the drawer, move the red block out to the pad, and put the blue block in.",
+  "ready": true,
+  "seconds": 28.3,
+  "skills": [
+   {
+    "label": "Open drawer",
+    "color": "#7C3AED",
+    "priors": [
+     "World frame"
+    ]
+   },
+   {
+    "label": "Red block to pad",
+    "color": "#F59E0B",
+    "priors": [
+     "Goal-pad frame"
+    ]
+   },
+   {
+    "label": "Blue block into drawer",
+    "color": "#0D9488",
+    "priors": [
+     "Drawer-goal frame"
+    ]
+   }
+  ]
+ },
+ {
+  "task": "buffer_swap",
+  "title": "Buffer Exchange",
+  "description": "Swap two blocks between their goal pads through a free buffer.",
+  "ready": false,
+  "seconds": 34.7,
+  "skills": [
+   {
+    "label": "Red block to buffer",
+    "color": "#7C3AED",
+    "priors": [
+     "Gripper residual"
+    ]
+   },
+   {
+    "label": "Blue block to goal",
+    "color": "#F59E0B",
+    "priors": [
+     "Gripper frame"
+    ]
+   },
+   {
+    "label": "Red block to goal",
+    "color": "#0D9488",
+    "priors": [
+     "Gripper frame",
+     "Phase-routed anchor"
+    ]
+   }
+  ]
+ },
+ {
+  "task": "constrained_retrieve_store",
+  "title": "Retrieve and Store",
+  "description": "Store a block from a low tunnel in a drawer: open, retrieve, place, and close.",
+  "ready": true,
+  "seconds": 37.0,
+  "skills": [
+   {
+    "label": "Open drawer",
+    "color": "#7C3AED",
+    "priors": [
+     "Gripper frame"
+    ]
+   },
+   {
+    "label": "Retrieve from tunnel",
+    "color": "#F59E0B",
+    "priors": [
+     "Gripper frame"
+    ]
+   },
+   {
+    "label": "Place in drawer",
+    "color": "#0D9488",
+    "priors": [
+     "Drawer-goal frame"
+    ]
+   },
+   {
+    "label": "Close drawer",
+    "color": "#DB2777",
+    "priors": [
+     "Gripper frame"
+    ]
+   }
+  ]
+ },
+ {
+  "task": "covered_peg_assembly",
+  "title": "Covered Peg Assembly",
+  "description": "Uncover and insert a peg: open the hinged lid, pick up the peg, reorient it, and insert it.",
+  "ready": true,
+  "seconds": 51.0,
+  "skills": [
+   {
+    "label": "Open lid",
+    "color": "#7C3AED",
+    "priors": [
+     "Hinge frame"
+    ]
+   },
+   {
+    "label": "Pick up peg",
+    "color": "#F59E0B",
+    "priors": [
+     "World frame"
+    ]
+   },
+   {
+    "label": "Reorient peg",
+    "color": "#0D9488",
+    "priors": [
+     "Held-peg frame",
+     "Hole frame",
+     "Hole frame · peg goal"
+    ]
+   },
+   {
+    "label": "Insert peg",
+    "color": "#DB2777",
+    "priors": [
+     "Hole frame · peg goal"
+    ]
+   }
+  ]
+ },
+ {
+  "task": "granular_pour_return",
+  "title": "Pour and Return",
+  "description": "Pour particles into a bowl, then return the container to its pad.",
+  "ready": false,
+  "seconds": 34.9,
+  "skills": [
+   {
+    "label": "Grasp and lift",
+    "color": "#7C3AED",
+    "priors": [
+     "Cup → bowl frame"
+    ]
+   },
+   {
+    "label": "Pour into bowl",
+    "color": "#F59E0B",
+    "priors": [
+     "Bowl frame"
+    ]
+   },
+   {
+    "label": "Return cup",
+    "color": "#0D9488",
+    "priors": [
+     "Return-pad frame"
+    ]
+   }
+  ]
+ }
+]
