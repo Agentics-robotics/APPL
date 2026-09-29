@@ -2,7 +2,7 @@
 (function () {
   const player = document.getElementById('player');
   const info = document.getElementById('task-info');
-  const tabs = Array.from(document.querySelectorAll('.tab'));
+  const tabs = Array.from(document.querySelectorAll('#rollouts .tab'));
   let tasks = {};
 
   function render(task) {
