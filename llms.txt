@@ -1,0 +1,33 @@
+# APPL: Agent Priors-guided Policy Learning
+
+> APPL uses each skill's structural prior both to shape how its policy is learned and as the interface a runtime agent reads to select and compose skills.
+
+Authors: Puming Jiang, Tianrun Hu, Haozhe Du, Yibo Li, Zhiwei Xue, Xinhu Li, and Harold Soh. Affiliation: National University of Singapore. Puming Jiang and Tianrun Hu contributed equally.
+
+Paper: arXiv:2609.35690, submitted September 28, 2026. This is a research project website; the learning implementation is marked "Code coming soon" on the page. This repository contains the static website, not the policy-training implementation.
+
+A structural prior states what a behavior depends on, such as the gripper's pose relative to an object. A construction agent segments demonstrations, proposes structural priors, and trains and verifies one policy per prior. A runtime agent selects and composes these policies using interfaces that describe the prior and its applicability.
+
+## Primary sources
+
+- [Project page](https://agentics-robotics.github.io/APPL/): Authors, full abstract, interactive prior illustration, method diagram, rollout videos, experimental tables, and BibTeX.
+- [Paper on arXiv](https://arxiv.org/abs/2609.35690): The research paper and bibliographic record.
+- [Paper PDF](https://arxiv.org/pdf/2609.35690): Full text with methodology and experimental details.
+
+## Project page sections
+
+- [Abstract](https://agentics-robotics.github.io/APPL/#abstract): Motivation, structural priors, skill learning, and composition.
+- [Prior illustration](https://agentics-robotics.github.io/APPL/#prior): Interactive comparison with and without a prior. This is an explanatory illustration, not a measured policy benchmark.
+- [Method](https://agentics-robotics.github.io/APPL/#method): Offline construction of prior-specific policies and online composition.
+- [Rollouts](https://agentics-robotics.github.io/APPL/#rollouts): Six videos with skill, prior, and applicability descriptions available in the page HTML. Videos are Blender re-renders of logged ManiSkill episodes.
+- [Results](https://agentics-robotics.github.io/APPL/#results): Full experimental tables and ablations. Experiment 1 covers six MetaWorld tasks; Experiment 2 covers five ManiSkill tasks and additional compositions. Results depend on the evaluation setting and demonstration count.
+- [BibTeX](https://agentics-robotics.github.io/APPL/#bibtex): Citation for the paper.
+
+## Reported results
+
+The [results tables](https://agentics-robotics.github.io/APPL/#results) report distinct evaluation settings: with two demonstrations on six MetaWorld tasks, APPL (q4) achieves 89.58% OOD skill success versus 37.92% for the relational-prior baseline. In the five-task ManiSkill experiment with twelve demonstrations per task, APPL achieves 50.0% success with shifted objects versus 10.0% for Diffusion Policy, 92.5% on task-level variants, and 8/16 on new compositions. Hiding interface information reduces new-composition success to 2/16. These figures refer to the reported simulation experiments, not real-world robot performance or a single overall success rate.
+
+## Optional
+
+- [Rollout interface data](https://agentics-robotics.github.io/APPL/static/data/tasks.json): Task names, skill sequences, structural priors, and "use when" conditions. These descriptions are also shown to readers in the rollout tabs.
+- [Sitemap](https://agentics-robotics.github.io/APPL/sitemap.xml): Canonical project-page URL.

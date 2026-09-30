@@ -5,10 +5,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>APPL: Agent Priors-guided Policy Learning</title>
   <meta name="description" content="APPL uses each skill's structural prior both to shape how its policy is learned and as the interface a runtime agent reads to select and compose skills.">
+  <link rel="canonical" href="https://agentics-robotics.github.io/APPL/">
+  <link rel="sitemap" type="application/xml" href="https://agentics-robotics.github.io/APPL/sitemap.xml">
+  <link rel="describedby" type="text/plain" href="https://agentics-robotics.github.io/APPL/llms.txt">
+  <meta name="citation_title" content="Agent Priors-guided Policy Learning">
+  <meta name="citation_author" content="Puming Jiang">
+  <meta name="citation_author" content="Tianrun Hu">
+  <meta name="citation_author" content="Haozhe Du">
+  <meta name="citation_author" content="Yibo Li">
+  <meta name="citation_author" content="Zhiwei Xue">
+  <meta name="citation_author" content="Xinhu Li">
+  <meta name="citation_author" content="Harold Soh">
+  <meta name="citation_publication_date" content="2026/09/28">
+  <meta name="citation_arxiv_id" content="2609.35690">
+  <meta name="citation_abstract_html_url" content="https://agentics-robotics.github.io/APPL/">
+  <meta name="citation_language" content="en">
   <meta property="og:title" content="APPL: Agent Priors-guided Policy Learning">
   <meta property="og:description" content="One structural prior shapes how a skill is learned and tells the runtime agent when to use it.">
-  <meta property="og:image" content="static/img/social_preview.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://agentics-robotics.github.io/APPL/">
+  <meta property="og:image" content="https://agentics-robotics.github.io/APPL/static/img/social_preview.png">
+  <meta property="og:image:alt" content="APPL: Agent Priors-guided Policy Learning">
   <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://agentics-robotics.github.io/APPL/#webpage",
+    "url": "https://agentics-robotics.github.io/APPL/",
+    "name": "APPL: Agent Priors-guided Policy Learning",
+    "inLanguage": "en",
+    "mainEntity": {
+      "@type": "ScholarlyArticle",
+      "@id": "https://arxiv.org/abs/2609.35690",
+      "url": "https://arxiv.org/abs/2609.35690",
+      "name": "Agent Priors-guided Policy Learning",
+      "headline": "Agent Priors-guided Policy Learning",
+      "identifier": "arXiv:2609.35690",
+      "datePublished": "2026-09-28",
+      "inLanguage": "en",
+      "isAccessibleForFree": true,
+      "author": [
+        {"@type": "Person", "name": "Puming Jiang"},
+        {"@type": "Person", "name": "Tianrun Hu"},
+        {"@type": "Person", "name": "Haozhe Du"},
+        {"@type": "Person", "name": "Yibo Li"},
+        {"@type": "Person", "name": "Zhiwei Xue"},
+        {"@type": "Person", "name": "Xinhu Li"},
+        {"@type": "Person", "name": "Harold Soh"}
+      ],
+      "sourceOrganization": {
+        "@type": "CollegeOrUniversity",
+        "name": "National University of Singapore"
+      },
+      "description": "One structural prior shapes how a skill is learned and tells the runtime agent when to use it.",
+      "image": "https://agentics-robotics.github.io/APPL/static/img/method.png",
+      "encoding": {
+        "@type": "MediaObject",
+        "contentUrl": "https://arxiv.org/pdf/2609.35690",
+        "encodingFormat": "application/pdf"
+      },
+      "subjectOf": {"@id": "https://agentics-robotics.github.io/APPL/#webpage"}
+    }
+  }
+  </script>
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="static/img/apple-touch-icon.png">
@@ -115,7 +175,130 @@
   <figure class="media player">
     <video id="player" src="static/videos/drawer_exchange.mp4" poster="static/img/posters/drawer_exchange.jpg" controls muted playsinline preload="metadata"></video>
   </figure>
-  <div class="task-info" id="task-info"></div>
+  <div class="task-info" id="task-info">
+    <!-- BEGIN GENERATED TASK PANELS: python3 scripts/render_task_panels.py -->
+    <div data-task="drawer_exchange" data-ready="true" role="tabpanel" aria-label="Drawer Exchange">
+      <p class="iface-title">The interface: each policy's prior, as the agent reads it</p>
+      <div class="iface">
+        <div class="iface-skill" style="border-top-color:#7C3AED">
+          <p class="iface-name"><span class="dot" style="background:#7C3AED"></span><span class="step">1</span>Open drawer</p>
+          <dl class="iface-policy"><dt>Prior</dt><dd>Gripper targets in world coordinates; a phase head separates approach, pull and release.</dd><dt>Use when</dt><dd class="when">Drawer at its calibrated place; the entry stage is uncertain.</dd></dl>
+        </div>
+        <div class="iface-skill" style="border-top-color:#F59E0B">
+          <p class="iface-name"><span class="dot" style="background:#F59E0B"></span><span class="step">2</span>Red block to pad</p>
+          <dl class="iface-policy"><dt>Prior</dt><dd>Gripper position as an offset from the red goal pad.</dd><dt>Use when</dt><dd class="when">Red block grasped; the pad may have moved.</dd></dl>
+          <dl class="iface-policy"><dt>Prior</dt><dd>Anchor switches with the phase: world, red block, pad, gripper, blue block.</dd><dt>Use when</dt><dd class="when">The phase is clear; red, the pad or blue may have moved.</dd></dl>
+        </div>
+        <div class="iface-skill" style="border-top-color:#0D9488">
+          <p class="iface-name"><span class="dot" style="background:#0D9488"></span><span class="step">3</span>Blue block into drawer</p>
+          <dl class="iface-policy"><dt>Prior</dt><dd>Progress along the straight line from the blue block to its slot, plus a small offset.</dd><dt>Use when</dt><dd class="when">Drawer open; the blue block may have moved.</dd></dl>
+          <dl class="iface-policy"><dt>Prior</dt><dd>Gripper position as an offset from the blue slot inside the drawer.</dd><dt>Use when</dt><dd class="when">Blue block carried; alignment with the drawer slot is the risk.</dd></dl>
+        </div>
+      </div>
+    </div>
+    <div data-task="buffer_swap" data-ready="true" role="tabpanel" aria-label="Buffer Exchange" hidden>
+      <p class="iface-title">The interface: each policy's prior, as the agent reads it</p>
+      <div class="iface">
+        <div class="iface-skill" style="border-top-color:#7C3AED">
+          <p class="iface-name"><span class="dot" style="background:#7C3AED"></span><span class="step">1</span>Red block to buffer</p>
+          <dl class="iface-policy"><dt>Prior</dt><dd>Offsets from the gripper pose at each chunk start; a phase head separates grasp, carry and release.</dd><dt>Use when</dt><dd class="when">The arm starts away from home, or mid-skill.</dd></dl>
+        </div>
+        <div class="iface-skill" style="border-top-color:#F59E0B">
+          <p class="iface-name"><span class="dot" style="background:#F59E0B"></span><span class="step">2</span>Blue block to goal</p>
+          <dl class="iface-policy"><dt>Prior</dt><dd>Small moves from the gripper&#x27;s current pose.</dd><dt>Use when</dt><dd class="when">Early or late handoff; small gripper offset.</dd></dl>
+        </div>
+        <div class="iface-skill" style="border-top-color:#0D9488">
+          <p class="iface-name"><span class="dot" style="background:#0D9488"></span><span class="step">3</span>Red block to goal</p>
+          <dl class="iface-policy"><dt>Prior</dt><dd>Small moves from the gripper&#x27;s current pose.</dd><dt>Use when</dt><dd class="when">Handoff from blue placement; small tracking offset.</dd></dl>
+          <dl class="iface-policy"><dt>Prior</dt><dd>Anchor by phase: the blue block, then the red block, then the red pad.</dd><dt>Use when</dt><dd class="when">Blue is placed; the red block may have moved.</dd></dl>
+        </div>
+      </div>
+    </div>
+    <div data-task="constrained_retrieve_store" data-ready="true" role="tabpanel" aria-label="Retrieve and Store" hidden>
+      <p class="iface-title">The interface: each policy's prior, as the agent reads it</p>
+      <div class="iface">
+        <div class="iface-skill" style="border-top-color:#7C3AED">
+          <p class="iface-name"><span class="dot" style="background:#7C3AED"></span><span class="step">1</span>Open drawer</p>
+          <dl class="iface-policy"><dt>Prior</dt><dd>Small moves from the gripper&#x27;s current pose.</dd><dt>Use when</dt><dd class="when">Partial progress or a small arm offset.</dd></dl>
+        </div>
+        <div class="iface-skill" style="border-top-color:#F59E0B">
+          <p class="iface-name"><span class="dot" style="background:#F59E0B"></span><span class="step">2</span>Retrieve from tunnel</p>
+          <dl class="iface-policy"><dt>Prior</dt><dd>Small moves from the gripper&#x27;s current pose.</dd><dt>Use when</dt><dd class="when">Block still in the tunnel; the arm starts off-nominal.</dd></dl>
+        </div>
+        <div class="iface-skill" style="border-top-color:#0D9488">
+          <p class="iface-name"><span class="dot" style="background:#0D9488"></span><span class="step">3</span>Place in drawer</p>
+          <dl class="iface-policy"><dt>Prior</dt><dd>Gripper pose in the drawer&#x27;s placement frame, tracked live.</dd><dt>Use when</dt><dd class="when">Drawer open; the placement goal may have moved.</dd></dl>
+        </div>
+        <div class="iface-skill" style="border-top-color:#DB2777">
+          <p class="iface-name"><span class="dot" style="background:#DB2777"></span><span class="step">4</span>Close drawer</p>
+          <dl class="iface-policy"><dt>Prior</dt><dd>Small moves from the gripper&#x27;s current pose.</dd><dt>Use when</dt><dd class="when">Release height or closing progress varies.</dd></dl>
+        </div>
+      </div>
+    </div>
+    <div data-task="covered_peg_assembly" data-ready="true" role="tabpanel" aria-label="Covered Peg Assembly" hidden>
+      <p class="iface-title">The interface: each policy's prior, as the agent reads it</p>
+      <div class="iface">
+        <div class="iface-skill" style="border-top-color:#7C3AED">
+          <p class="iface-name"><span class="dot" style="background:#7C3AED"></span><span class="step">1</span>Open lid</p>
+          <dl class="iface-policy"><dt>Prior</dt><dd>Gripper targets in the lid&#x27;s hinge frame; open and close as a learned mode.</dd><dt>Use when</dt><dd class="when">The lid box may have moved or rotated.</dd></dl>
+        </div>
+        <div class="iface-skill" style="border-top-color:#F59E0B">
+          <p class="iface-name"><span class="dot" style="background:#F59E0B"></span><span class="step">2</span>Pick up peg</p>
+          <dl class="iface-policy"><dt>Prior</dt><dd>World coordinates with phase cues from the lid, the peg height and the fingers.</dd><dt>Use when</dt><dd class="when">Default; unclear whether the lid is released or the peg grasped.</dd></dl>
+        </div>
+        <div class="iface-skill" style="border-top-color:#0D9488">
+          <p class="iface-name"><span class="dot" style="background:#0D9488"></span><span class="step">3</span>Reorient peg</p>
+          <dl class="iface-policy"><dt>Prior</dt><dd>Gripper pose in the held peg&#x27;s frame.</dd><dt>Use when</dt><dd class="when">Peg held rigidly; peg and gripper moved together.</dd></dl>
+          <dl class="iface-policy"><dt>Prior</dt><dd>Gripper pose in the hole frame.</dd><dt>Use when</dt><dd class="when">The fixture moved; the peg is held.</dd></dl>
+          <dl class="iface-policy"><dt>Prior</dt><dd>The peg&#x27;s pose in the hole frame first, then the gripper through the grasp.</dd><dt>Use when</dt><dd class="when">The hole moved or the grasp offset changed.</dd></dl>
+        </div>
+        <div class="iface-skill" style="border-top-color:#DB2777">
+          <p class="iface-name"><span class="dot" style="background:#DB2777"></span><span class="step">4</span>Insert peg</p>
+          <dl class="iface-policy"><dt>Prior</dt><dd>The peg&#x27;s pose in the hole frame first, then the gripper through the grasp.</dd><dt>Use when</dt><dd class="when">Peg retained; the hole or the grasp offset changed.</dd></dl>
+        </div>
+      </div>
+    </div>
+    <div data-task="granular_pour_return" data-ready="true" role="tabpanel" aria-label="Pour and Return" hidden>
+      <p class="iface-title">The interface: each policy's prior, as the agent reads it</p>
+      <div class="iface">
+        <div class="iface-skill" style="border-top-color:#7C3AED">
+          <p class="iface-name"><span class="dot" style="background:#7C3AED"></span><span class="step">1</span>Grasp and lift</p>
+          <dl class="iface-policy"><dt>Prior</dt><dd>Gripper position from the cup, then from the bowl, blended as it lifts.</dd><dt>Use when</dt><dd class="when">The cup may have moved.</dd></dl>
+        </div>
+        <div class="iface-skill" style="border-top-color:#F59E0B">
+          <p class="iface-name"><span class="dot" style="background:#F59E0B"></span><span class="step">2</span>Pour into bowl</p>
+          <dl class="iface-policy"><dt>Prior</dt><dd>The cup&#x27;s pose in the bowl frame first, then the gripper; particles as an unordered set.</dd><dt>Use when</dt><dd class="when">Cup held rigidly; the bowl may have moved.</dd></dl>
+        </div>
+        <div class="iface-skill" style="border-top-color:#0D9488">
+          <p class="iface-name"><span class="dot" style="background:#0D9488"></span><span class="step">3</span>Return cup</p>
+          <dl class="iface-policy"><dt>Prior</dt><dd>Gripper pose in the return-pad frame.</dd><dt>Use when</dt><dd class="when">Cup held upright; the pad may have moved.</dd></dl>
+        </div>
+      </div>
+    </div>
+    <div data-task="drawer_keep_red" data-ready="true" role="tabpanel" aria-label="Store Blue, Keep Red" hidden>
+      <p class="iface-title">The interface: each policy's prior, as the agent reads it</p>
+      <div class="iface">
+        <div class="iface-skill" style="border-top-color:#7C3AED">
+          <p class="iface-name"><span class="dot" style="background:#7C3AED"></span><span class="step">1</span>Open drawer</p>
+          <dl class="iface-policy"><dt>Prior</dt><dd>Gripper targets in world coordinates; a phase head separates approach, pull and release.</dd><dt>Use when</dt><dd class="when">Drawer at its calibrated place; the entry stage is uncertain.</dd></dl>
+        </div>
+        <div class="iface-skill" style="border-top-color:#F59E0B">
+          <p class="iface-name"><span class="dot" style="background:#F59E0B"></span><span class="step">2</span>Grasp blue</p>
+          <dl class="iface-policy"><dt>Prior</dt><dd>Anchor switches with the phase: world, red block, pad, gripper, blue block.</dd><dt>Use when</dt><dd class="when">The phase is clear; red, the pad or blue may have moved.</dd></dl>
+        </div>
+        <div class="iface-skill" style="border-top-color:#0D9488">
+          <p class="iface-name"><span class="dot" style="background:#0D9488"></span><span class="step">3</span>Blue into drawer</p>
+          <dl class="iface-policy"><dt>Prior</dt><dd>Gripper position as an offset from the blue slot inside the drawer.</dd><dt>Use when</dt><dd class="when">Blue block carried; alignment with the drawer slot is the risk.</dd></dl>
+        </div>
+        <div class="iface-skill" style="border-top-color:#DB2777">
+          <p class="iface-name"><span class="dot" style="background:#DB2777"></span><span class="step">4</span>Reopen drawer</p>
+          <dl class="iface-policy"><dt>Prior</dt><dd>Gripper targets in the drawer&#x27;s own frame, sliding with the drawer.</dd><dt>Use when</dt><dd class="when">The drawer is displaced or already partly open.</dd></dl>
+          <dl class="iface-policy"><dt>Prior</dt><dd>Gripper targets in world coordinates; a phase head separates approach, pull and release.</dd><dt>Use when</dt><dd class="when">Drawer at its calibrated place; the entry stage is uncertain.</dd></dl>
+        </div>
+      </div>
+    </div>
+    <!-- END GENERATED TASK PANELS -->
+  </div>
 </div></section>
 
 <section class="band gray" id="results"><div class="wrap">
