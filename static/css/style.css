@@ -42,8 +42,9 @@ h1 {
 h1 .hl { color: var(--red); }
 .tagline { margin: 18px auto 0; max-width: 720px; font: 400 clamp(19px, 2.4vw, 26px)/1.35 var(--font); color: var(--muted); letter-spacing: -.02em; }
 .tagline em { font-style: normal; color: var(--ink); }
-.authors { margin: 34px auto 2px; display: flex; flex-wrap: wrap; justify-content: center; gap: 2px 18px; font-size: 17px; }
+.authors { margin: 34px auto 2px; display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: 2px 18px; font-size: 17px; }
 .authors span { color: var(--ink); white-space: nowrap; }
+.authors a { color: inherit; }
 .authors sup, .affil sup { color: var(--red); }
 .affil { margin: 0; color: var(--muted); font-size: 14px; letter-spacing: -.01em; }
 .links { margin-top: 30px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px 30px; font-size: 17px; }
