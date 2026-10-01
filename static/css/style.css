@@ -46,6 +46,8 @@ h1 .hl { color: var(--red); }
 .authors span { color: var(--ink); white-space: nowrap; }
 .authors a { color: inherit; }
 .authors sup, .affil sup { color: var(--red); }
+/* Raise the contribution marker without changing the author's line box. */
+.authors sup { position: relative; top: -.5em; vertical-align: baseline; font-size: .75em; line-height: 0; }
 .affil { margin: 0; color: var(--muted); font-size: 14px; letter-spacing: -.01em; }
 .links { margin-top: 30px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px 30px; font-size: 17px; }
 .links .pill { padding: 11px 22px; border-radius: 980px; background: var(--blue); color: #fff; }
