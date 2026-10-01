@@ -4,7 +4,7 @@
 
 Authors: Puming Jiang, Tianrun Hu, Haozhe Du, Yibo Li, Zhiwei Xue, Xinhu Li, and Harold Soh. Affiliation: National University of Singapore. Puming Jiang and Tianrun Hu contributed equally.
 
-Paper: arXiv:2609.35690, submitted September 28, 2026. This is a research project website; the learning implementation is marked "Code coming soon" on the page. This repository contains the static website, not the policy-training implementation.
+Paper: arXiv:2609.35690, submitted September 28, 2026. This is a research project website with a link to the separate code repository. This repository contains the static website, not the policy-training implementation.
 
 A structural prior states what a behavior depends on, such as the gripper's pose relative to an object. A construction agent segments demonstrations, proposes structural priors, and trains and verifies one policy per prior. A runtime agent selects and composes these policies using interfaces that describe the prior and its applicability.
 
@@ -13,6 +13,7 @@ A structural prior states what a behavior depends on, such as the gripper's pose
 - [Project page](https://agentics-robotics.github.io/APPL/): Authors, full abstract, interactive prior illustration, method diagram, rollout videos, experimental tables, and BibTeX.
 - [Paper on arXiv](https://arxiv.org/abs/2609.35690): The research paper and bibliographic record.
 - [Paper PDF](https://arxiv.org/pdf/2609.35690): Full text with methodology and experimental details.
+- [Code repository](https://github.com/Agentics-robotics/Agent-Priors-guided-Policy-Learning): APPL code repository linked from the project page.
 
 ## Project page sections
 
