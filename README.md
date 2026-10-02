@@ -2,12 +2,14 @@
 
 # Agent Priors-guided Policy Learning (APPL)
 
-Project page: **https://agentics-robotics.github.io/APPL/**
+APPL is an agentic robot learning framework that connects policy learning with agent-based skill selection and composition through structural priors, enabling generalization from a few demonstrations to new scenes and task compositions.
 
-APPL uses each skill's structural prior twice: built into training, it shapes where the skill's policy generalizes; stated in the policy's interface, it tells a runtime agent where the policy applies, so the agent can select and compose prior-specific policies for new tasks.
+A construction agent segments demonstrations into reusable skills, proposes structural priors, and trains and verifies a policy for each prior. A runtime agent reads interfaces that describe these priors and their applicability to select and compose policies for new task goals. The same structural prior shapes how a policy generalizes during learning and tells the runtime agent when to use it.
 
+- Project page: [APPL](https://agentics-robotics.github.io/APPL/)
 - Code: [GitHub](https://github.com/Agentics-robotics/Agent-Priors-guided-Policy-Learning)
 - Paper: [arXiv:2609.35690](https://arxiv.org/abs/2609.35690)
+- Discussion: [Hugging Face](https://huggingface.co/papers/2609.35690)
 
 This repository holds the static website only (`index.html`, `static/`). The rollout videos are Blender re-renders of logged ManiSkill episodes.
 

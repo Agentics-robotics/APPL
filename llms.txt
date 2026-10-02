@@ -1,6 +1,6 @@
 # APPL: Agent Priors-guided Policy Learning
 
-> APPL uses each skill's structural prior both to shape how its policy is learned and as the interface a runtime agent reads to select and compose skills.
+> APPL is an agentic robot learning framework that connects policy learning with agent-based skill selection and composition through structural priors, enabling generalization from a few demonstrations to new scenes and task compositions.
 
 Authors: Puming Jiang, Tianrun Hu, Haozhe Du, Yibo Li, Zhiwei Xue, Xinhu Li, and Harold Soh. Affiliation: National University of Singapore. Puming Jiang and Tianrun Hu contributed equally.
 
@@ -14,6 +14,7 @@ A structural prior states what a behavior depends on, such as the gripper's pose
 - [Paper on arXiv](https://arxiv.org/abs/2609.35690): The research paper and bibliographic record.
 - [Paper PDF](https://arxiv.org/pdf/2609.35690): Full text with methodology and experimental details.
 - [Code repository](https://github.com/Agentics-robotics/Agent-Priors-guided-Policy-Learning): APPL code repository linked from the project page.
+- [Hugging Face paper page](https://huggingface.co/papers/2609.35690): Paper abstract, community discussion, and linked research assets.
 
 ## Project page sections
 

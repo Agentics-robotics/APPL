@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>APPL: Agent Priors-guided Policy Learning</title>
-  <meta name="description" content="APPL uses each skill's structural prior both to shape how its policy is learned and as the interface a runtime agent reads to select and compose skills.">
+  <meta name="description" content="APPL is an agentic robot learning framework connecting policy learning with agent-based skill selection and composition through structural priors for generalization from a few demonstrations to new scenes and task compositions.">
   <link rel="canonical" href="https://agentics-robotics.github.io/APPL/">
   <link rel="sitemap" type="application/xml" href="https://agentics-robotics.github.io/APPL/sitemap.xml">
   <link rel="describedby" type="text/plain" href="https://agentics-robotics.github.io/APPL/llms.txt">
@@ -21,12 +21,13 @@
   <meta name="citation_abstract_html_url" content="https://agentics-robotics.github.io/APPL/">
   <meta name="citation_language" content="en">
   <meta property="og:title" content="APPL: Agent Priors-guided Policy Learning">
-  <meta property="og:description" content="One structural prior shapes how a skill is learned and tells the runtime agent when to use it.">
+  <meta property="og:description" content="APPL is an agentic robot learning framework connecting policy learning with agent-based skill selection and composition through structural priors for generalization from a few demonstrations to new scenes and task compositions.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://agentics-robotics.github.io/APPL/">
   <meta property="og:image" content="https://agentics-robotics.github.io/APPL/static/img/social_preview.png">
   <meta property="og:image:alt" content="APPL: Agent Priors-guided Policy Learning">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:description" content="APPL is an agentic robot learning framework connecting policy learning with agent-based skill selection and composition through structural priors for generalization from a few demonstrations to new scenes and task compositions.">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -58,7 +59,7 @@
         "@type": "CollegeOrUniversity",
         "name": "National University of Singapore"
       },
-      "description": "One structural prior shapes how a skill is learned and tells the runtime agent when to use it.",
+      "description": "APPL is an agentic robot learning framework that connects policy learning with agent-based skill selection and composition through structural priors, enabling generalization from a few demonstrations to new scenes and task compositions.",
       "image": "https://agentics-robotics.github.io/APPL/static/img/method.png",
       "encoding": {
         "@type": "MediaObject",
@@ -83,7 +84,7 @@
   <div class="wrap">
     <img class="hero-logo" src="static/img/logo.png" alt="APPL logo">
     <h1><span class="hl">A</span>gent <span class="hl">P</span>riors-guided <span class="hl">P</span>olicy <span class="hl">L</span>earning</h1>
-    <p class="tagline">One structural prior shapes how a skill is learned <em>and</em> tells the runtime agent when to use it.</p>
+    <p class="tagline">An agentic robot learning framework that connects policy learning with agent-based skill selection and composition through structural priors, enabling generalization from a few demonstrations to new scenes and task compositions.</p>
     <p class="authors">
       <span><a href="https://0scarj1ang.github.io/">Puming Jiang</a><sup>*</sup></span>
       <span><a href="https://h-tr.github.io/">Tianrun Hu</a><sup>*</sup></span>
@@ -150,7 +151,7 @@
   <h2>How it works.</h2>
   <figure class="plain-figure">
     <img src="static/img/method.png" alt="APPL pipeline: construction agent, frozen skill library, runtime agent" loading="lazy">
-    <figcaption><strong>Build prior-specific policies offline, compose them online.</strong> <span class="orange">Orange</span> marks the prior's two roles.</figcaption>
+    <figcaption><strong>Build prior-specific policies offline, compose them online.</strong> A construction agent builds and verifies policies under structural priors; a runtime agent uses their interfaces to select and compose skills for new task goals. <span class="orange">Orange</span> marks the prior's two roles.</figcaption>
   </figure>
 </div></section>
 
